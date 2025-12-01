@@ -287,8 +287,9 @@ header .navbar{
 
 .about-table {
     border: 2px solid var(--white-color);
-    border-radius: 10px;
-    margin-top: 50px;
+    background: var(--white-color);
+    border-radius: 5px;
+    margin-top: 10px;
     padding: 30px 50px;
     border-collapse: separate;
     border-spacing: 0;
@@ -297,15 +298,18 @@ header .navbar{
 }
 
 .about-table th {
-    border-bottom: 2px solid var(--white-color);
+    border-bottom: 2px solid var(--dark-color);
+    color: var(--dark-color);
     font-size: var(--font-size-l);
     margin-top: 15px;
     padding-bottom: 25px;
 }
 
 .about-table .myStory td{
+    color: var(--dark-color);
     padding-top: 25px;
 }
+
 .story-row .slide-image {
     width: 460px;
     height: auto;
@@ -313,6 +317,65 @@ header .navbar{
     border-radius: 20px;
     transition: all 0.9s ;
 }
+
+.factsaboutme-table{
+    border: 2px solid var(--white-color);
+    
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 30px 50px;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 0 10px var(--white-color);
+}
+
+/* ROW 1 (blue) */
+.about-section  .button .button-row1 {
+    background: var(--third-color);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semibold);
+    border: 2px solid var(--third-color);
+    border-radius: 20px;
+    padding: 5px 15px;
+    transition: 0.3s ease;
+}
+
+.about-section  .button .button-row1:hover {
+    background: transparent;
+    color: var(--third-coloror);
+    border: 2px solid var(--third-color);
+}
+
+/* ROW 2 (white) */
+.about-section  .button .button-row2 {
+    background: var(--white-color);
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-semibold);
+    border: 2px solid var(--dark-color);
+    border-radius: 20px;
+    padding: 5px 15px;
+    transition: 0.3s ease;
+}
+
+.about-section  .button .button-row2:hover {
+    background: transparent;
+    color: var(--third-color);
+    border: 2px solid var(--white-color);
+}
+
+
+.about-section .hero-image {
+    max-width: 300px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.about-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .slide-container { /*container for images*/
     margin-top: 200px;
     display: flex;
@@ -320,9 +383,43 @@ header .navbar{
     gap: 30px;
     flex-wrap: wrap;
     margin-top: 20px;
-    
 }
 
+/* Hover effect */
+.slide-image:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Dark overlay on hover */
+.slide-container td {
+    position: relative;
+}
+
+.slide-container td::after {
+    content: attr(data-project);      /* The text that appears on hover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0);        /* Invisible by default */
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.slide-container td:hover::after {
+    background: rgba(0,0,0,0.6);
+    opacity: 1;
+}
 .slide-image {
     object-fit: cover;
     border-radius: 20px;
@@ -356,113 +453,339 @@ header .navbar{
   transform: translateY(0);
 }
 
-/*SKILLS SECTION*/
-.skills-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
+
+/*HOBBIES SECTIONS*/
+.hobbies-section {
+    background-color: #fff;
+    padding: 20px 0;
+    overflow: hidden;
 }
 
+.hobbies-section .hobbies-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-color)
+}
+
+.hobbies-table {
+    order: 2px solid var(--white-color);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 20px  100px; /* padding around the table */
+    border-collapse: separate; /* keep cells separated */
+    border-spacing: 0; /* spacing between cells */
+    box-shadow: 0 0 10px var(--white-color);
+}
+
+.hobbies-table table {
+    width: 100%;
+    border-collapse: separate;
+    table-layout: fixed;
+}
+
+.hobbies-table td {
+    padding: 2%;
+    text-align: left;
+    color: var(--dark-color);
+    border-bottom: 2px solid var(--white-color);
+    border-right:2px solid var(--third-color);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+    vertical-align: top;
+}
+
+.hobbies-bullet ul {
+    padding-left: 20px;
+    margin: 10px 0 0;
+}
+
+.hobbies-bullet ul li{
+    margin-bottom: 5px;
+    font-size: var(--font-size-m);
+    list-style-type: disc;
+    padding-left: 5px;
+}
+
+.hobbies-table td:last-child{
+    border-right: none;
+}
+
+
+
+
+
+/*SKILLS SECTION*/
 .skills-section {
     min-height: 100vh;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: center;
-    padding: 40px 0;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: var(--white-color);
+    text-align: center;
+    gap: 10px;
     position: relative;
 }
 
-
-/*Skills Table*/
-.skills-table {
-    width: 100%; /* makes the table wider */
-    margin: 40px auto; /* centers it */
-    border-collapse: collapse;
-    background-color: transparent;
-    border: 4px solid var(--dark-color); /* single thick border */
-    border-radius: 12px;
-    overflow: hidden; /* keeps corners clean */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* adds subtle shadow */
+.skills-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
 }
 
-.skills-table th, 
-.skills-table td {
-    padding: 20px;
-    text-align: center;
-    background-color: transparent;
-    border: none; /* removes inner lines */
-    color:var(--white-color);
-    font-size: var(--font-size-m);
+/*EDUCATION SECTION TABLE*/
+.table-edu {
+    flex: 2;
+    margin-top: 120px;
+    width: 300%;
+    height: 300%;
+    border: 2px solid var(--white-color);
+    background: #fff;
+    padding: 20px 50px;
+    border-collapse: separate;
+    box-shadow: 0 0 10px var(--white-color);
+    box-sizing: border-box;
 }
 
-.skills-table th {
-    color: var(--white-color);
-    font-family: "Miniver", sans-serif;
-    font-size: var(--font-size-l);
-    font-weight: bold;
-}
-
-/*skills logo*/
-.bw-image {
-    width: 300px;               /* adjust to your preferred size */
-    border-radius: 10px;        /* optional: round corners */
-    filter: grayscale(100%);    /* make image black & white */
-    transition: filter 0.6s ease, transform 0.3s ease; /* smooth animation */
-}
-
-.bw-image:hover {
-    filter: grayscale(0%);      /* restores original color */
-    transform: scale(1.05);     /* optional: slight zoom effect */
-}
-
-.skills-logo img {
-    width: 120px;              /* uniform size for all logos */
-    height: 120px;             /* makes all logos square */
-    object-fit: contain;       /* keeps logos proportional */
-    padding: 10px;             /* inner spacing */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* inner border */
-    border-radius: 10px;       /* soft corners */
-    background-color: rgba(255, 255, 255, 0.05); /* optional: slight inner background */
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.skills-logo img:hover {
-    transform: scale(1.1);
-    border-color: var(--primary-color); /* matches your theme color */
-}
-
-.skills-section {
-    min-height: 100vh;
-}
-
-
-
-/*education Section*/
-.education-section {
-    min-height: 100vh;
+.table-edu th {
    
+    border-bottom: 2px solid var(--third-color);
+    color: #87c8eb;
+    font-family: "Miniver", sans-serif;
+    font-size: var(--font-size-xxl);
+    margin-top: 15px;
+    padding-bottom: 25px;
 }
 
-/*experience Section*/
-.experience-section {
-    min-height: 100vh;
+.table-edu td{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px 0;
+    color: #022340;
+    font-weight: var(--font-weight-semibold);
+    padding: 5px 10px 10px 10px;
+    text-align: left;
     
 }
 
-/*contact Section*/
-.contact-section {
-    min-height: 100vh;
-   
+.table-edu img {
+    width: 150px;
+    height: auto;
+    margin-top: 50px;
 }
 
+.picleft img{
+    order: 1;
+}
+
+.elem, .highschool,
+.seniorhigh, .college p{
+    max-width: 700px;
+    text-align: justify;
+    margin-top: 15px;
+    align-items: flex-end;
+    font-style: italic;
+}
+
+
+/*SKILLS-SIDE*/
+.skills-side {
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 120px;
+    margin-left: 100px;
+    margin-right: 0;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.skills-title {
+    margin: 0;
+    font-size: 2rem;
+    align-self: flex-end;
+}
+
+.skill-labels {
+    text-align: center;      /* center text inside the cell */
+    font-size: var(--font-size-l);
+    color: var(--third-color);
+    font-family: "Miniver", sans-serif;
+    padding: 15px 0;
+}
+.software, .coding, .projects {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--dark-color);
+    border-radius: 50px;
+    box-shadow: 0 0 10px black;
+    background: var(--primary-color);
+}
+
+.software table,
+.coding table,
+.projects table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;          /* center the table */
+    text-align: center;       /* center header text and items */
+    display: table;  
+    padding: 10px 10px 10px 10px;         /* restore proper table layout */
+}
+
+.software table th,
+.coding table th,
+.projects table th {
+    text-align: center;       /* header centered */
+    vertical-align: top;
+    padding-bottom: 10px;
+    font-family: "Miniver", sans-serif;
+    color: var(--white-color);
+    font-size: var(--font-size-xxl);
+}
+
+.software td,
+.coding td,
+.projects td {
+    position: relative;
+    width: auto;               /* auto width for flexible content */
+    height: 90px;
+    display: flex;
+    flex-direction: row;       /* image and text side by side */
+    align-items: center;       /* vertically center content */ /* align left */
+    gap: 10px;                 /* spacing between image and text */
+    padding: 5px 10px;
+}
+
+
+.software .slide-image,
+.coding .slide-image,
+.projects .slide-image {
+    display: block;
+    margin: 20px 100px 5px;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.6s ease, transform 0.3s ease;
+}
+
+
+.software .slide-image:hover,
+.coding .slide-image:hover,
+.projects .slide-image:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+
+.software .code-item,
+.coding .code-item,
+.projects .code-item {
+    display: flex;
+    flex-direction: row;       
+    align-items: center;       
+    gap: 10px;                
+}
+
+.software .code-item .lists li,
+.coding .code-item .lists li,
+.projects .code-item .lists li{   
+    list-style: disc;
+    text-align: left;  
+    line-height: 1;    
+}
+
+.software td::after,
+.coding td::after,
+.projects td::after {
+    content: attr(data-project);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-m);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    background: transparent;
+}
+
+.software td:hover::after,
+.coding td:hover::after,
+.projects td:hover::after {
+    opacity: 1;
+    background:transparent; /* optional dark overlay for better visibility */
+}
+
+.software .project-text,
+.coding .project-text,
+.projects .project-text {
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.software .code-item:hover .project-text,
+.coding .code-item:hover .project-text,
+.projects .code-item:hover .project-text {
+    opacity: 1;
+}
+
+
+/*contact Section*/
+.contact-section {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--white-color);
+    text-align: center;
+    padding: 120px 100px 0 0;
+    position: relative;
+    background: var(--white-color);
+}
+
+.contact-section img {
+    margin-top: 50px;
+    margin-right: 500px;
+    width: 700px;
+    height: auto;
+}
+
+.story-row p {
+    max-width: 700px;
+    text-align: justify;
+}
+
+.contact-section p {
+    font-family: "Miniver", sans-serif;
+    margin-top: 50px;
+    color: var(--third-color);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+/*FOR ALL SECTIONS*/
 .hero-section,
 .about-section,
-.skills-section,
-.contact-section {
+.skills-section
+{
     background: var(--dark-color); 
 }
 
@@ -477,6 +800,8 @@ header .navbar{
     font-size: var(--font-size-xxl);
     text-align: left;
 }
+
+
 /*
 @media screen and (max-width: 900px){
     
@@ -524,4 +849,54 @@ header .navbar{
         font-size: var(--font-size-xl);
     }
 }
+
+
+.skills-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.skills-section {
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: center;
+    padding: 40px 0;
+    margin: 0;
+    position: relative;
+}
+
+
+.skills-table {
+    width: 100%; 
+    margin: 40px auto; 
+    border-collapse: collapse;
+    background-color: transparent;
+    border: 4px solid var(--dark-color);
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.skills-table th, 
+.skills-table td {
+    padding: 20px;
+    text-align: center;
+    background-color: transparent;
+    border: none; 
+    color:var(--white-color);
+    font-size: var(--font-size-m);
+}
+
+.skills-table th {
+    color: var(--white-color);
+    font-family: "Miniver", sans-serif;
+    font-size: var(--font-size-l);
+    font-weight: bold;
+}
+
 */
