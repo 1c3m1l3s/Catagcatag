@@ -745,39 +745,67 @@ header .navbar{
     opacity: 1;
 }
 
-
-/*contact Section*/
-.contact-section {
-    min-height: 50vh;
+/* CONTACT SECTION - 2 columns */
+#contact {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    color: var(--white-color);
-    text-align: center;
-    padding: 120px 100px 0 0;
-    position: relative;
-    background: var(--white-color);
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;           /* space between left and right columns */
+    padding: 40px 60px 0 60px;
+    flex-wrap: wrap;
 }
 
-.contact-section img {
-    margin-top: 50px;
-    margin-right: 500px;
-    width: 700px;
+/* LEFT IMAGE - big call.png */
+#contact > img:first-child {
+    width: 50%;   
+    max-width: 500px;       /* takes up left half */
     height: auto;
+    object-fit: cover;
 }
 
-.story-row p {
-    max-width: 700px;
-    text-align: justify;
+/* RIGHT COLUMN CONTENT */
+.contact-content {
+    display: flex;
+    flex-direction: column;   /* aligns title and icons to right */
+    width: 45%;
+    min-width: 200px;
 }
 
-.contact-section p {
+/* CONTACT ME TITLE */
+.contact-content h2 {
     font-family: "Miniver", sans-serif;
-    margin-top: 50px;
     color: var(--third-color);
     font-size: 50px;
-    font-weight: bold;
+    margin: 0 0 30x 0;
+    text-align: right;
+}
+
+/* Table adjustments */
+.contact-item td {
+    display: flex;
+    flex-direction: column;  /* stack each <a> vertically */
+    gap: 18px;               /* space between icon+text pairs */
+}
+
+/* Each icon + text pair side by side */
+.contact-item a {
+    display: flex;
+    align-items: center;     /* icon and h4 aligned horizontally */
+    gap: 12px;               /* space between icon and text */
+    text-decoration: none;
+}
+
+/* Icon size */
+.contact-item a img.icon {
+    width: 80px;             /* adjust icon size as needed */
+    height: 80px;
+}
+
+/* Text next to icon */
+.contact-item h4 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--third-color);
 }
 
 
@@ -790,8 +818,7 @@ header .navbar{
 }
 
 .about-section h2,
-.skills-section h2,
-.contact-section h2 {
+.skills-section h2 {
     position: relative;
     align-self: flex-start;
     margin-left: calc(var(--horizontal-spacing) - 20px);
@@ -801,7 +828,53 @@ header .navbar{
     text-align: left;
 }
 
+/* Tablets (max 900px) */
+@media screen and (max-width: 900px) {
+    #contact {
+        padding: 30px 20px;
+        gap: 25px;
+    }
 
+    #contact > img:first-child {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-content {
+        width: 100%;
+        align-items: center;    /* move right side to center */
+        text-align: center;
+    }
+
+    .contact-content h2 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .contact-item td {
+        align-items: center;
+    }
+}
+
+/* Phones (max 600px) */
+@media screen and (max-width: 600px) {
+    #contact {
+        padding: 20px 15px;
+    }
+
+    .contact-content h2 {
+        font-size: 32px;
+    }
+
+    .contact-item a img.icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-item h4 {
+        font-size: 16px;
+    }
+}
 /*
 @media screen and (max-width: 900px){
     
