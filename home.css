@@ -345,6 +345,9 @@ header .navbar{
     text-align: left;
     margin-left: var(--horizontal-spacing);
 }
+.myStory p {
+    margin-bottom: 15px;
+}
 
 .story-row {
     display: flex;
@@ -575,7 +578,7 @@ header .navbar{
     padding-top: 20px 0;
     color: #022340;
     font-weight: var(--font-weight-semibold);
-    padding: 5px 10px 10px 10px;
+    padding: 5px 10px 15px 10px;
     text-align: left;
     
 }
@@ -638,6 +641,30 @@ header .navbar{
     background: var(--primary-color);
 }
 
+/* Flex wrapper for skills */
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* space between rows */
+    width: 100%;
+}
+
+/* Each row of images */
+.skills-wrapper .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* space between images */
+    flex-wrap: wrap; /* ensures responsiveness */
+}
+
+/* Image styling */
+.slide-image {
+    max-width: 100px; /* scale images */
+    height: auto;
+    object-fit: contain;
+}
+
 .software table,
 .coding table,
 .projects table {
@@ -669,16 +696,41 @@ header .navbar{
     display: flex;
     flex-direction: row;       /* image and text side by side */
     align-items: center;       /* vertically center content */ /* align left */
-    gap: 10px;                 /* spacing between image and text */
-    padding: 5px 10px;
+    gap: 5px;                 /* spacing between image and text */
+    padding: 5px 5px;
 }
 
+.software td {
+    display: grid;                          /* use grid layout */
+    grid-template-rows: repeat(2, auto);    /* 2 rows */
+    grid-auto-flow: column;                  /* fill images column by column */
+    gap: 10px;                               /* space between images */
+    align-items: center;                     /* vertically center images */
+    justify-items: center;                   /* horizontally center images */
+    padding: 15px;                           /* inner spacing inside cell */
+    width: 100%;                             /* ensure cell fits table width */
+    box-sizing: border-box;
+}
 
-.software .slide-image,
+/* Images inside software table cells */
+.software td .slide-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.software td .slide-image:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
 .coding .slide-image,
 .projects .slide-image {
     display: block;
-    margin: 20px 100px 5px;
+    margin: 20px 80px 10px;
     width: 70px;
     height: 70px;
     object-fit: contain;
@@ -687,7 +739,7 @@ header .navbar{
 }
 
 
-.software .slide-image:hover,
+
 .coding .slide-image:hover,
 .projects .slide-image:hover {
     filter: grayscale(0%);
@@ -701,7 +753,7 @@ header .navbar{
     display: flex;
     flex-direction: row;       
     align-items: center;       
-    gap: 10px;                
+    gap: 5px;                
 }
 
 .software .code-item .lists li,
@@ -754,73 +806,116 @@ header .navbar{
     color: var(--white-color);
 }
 
-/* CONTACT SECTION - 2 columns */
+/* CONTACT SECTION */
 #contact {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    gap: 40px;           /* space between left and right columns */
-    padding: 40px 60px 0 60px;
+    align-items: flex-start;
+    gap: 50px;
     flex-wrap: wrap;
+    margin-bottom: 0; /* no extra bottom space */
 }
 
-/* LEFT IMAGE - big call.png */
-#contact > img:first-child {
-    width: 50%;   
-    max-width: 500px;       /* takes up left half */
-    height: auto;
-    object-fit: cover;
-}
-
-/* RIGHT COLUMN CONTENT */
-.contact-content {
+/* LEFT IMAGE */
+.contact-left {
+    flex: 1; /* takes half of the container */
     display: flex;
-    flex-direction: column;   /* aligns title and icons to right */
-    width: 45%;
-    min-width: 200px;
+    justify-content: center;
+    align-items: flex-start; /* top-align with right content */
 }
 
-/* CONTACT ME TITLE */
+.contact-left img {
+    width: 100%;          /* fill parent */
+    max-width: none;      /* remove previous limit */
+    height: auto;
+    object-fit: cover;    /* maintain aspect ratio */
+    display: block;       /* remove extra inline spacing */
+    margin: 0;            /* no margin at bottom */
+    
+    border-radius: 20px;  
+    opacity: 0;           /* hidden initially */
+    transform: translateY(80px); /* start below */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* slide-up effect */
+}
+
+.contact-left img.in-view {
+    opacity: 1;
+    transform: translateY(0); /* slide up into place */
+}
+
+/* RIGHT CONTENT */
+.contact-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
+
 .contact-content h2 {
     font-family: "Miniver", sans-serif;
     color: var(--third-color);
     font-size: 50px;
-    margin: 0 0 30x 0;
+    margin-bottom: 30px;
     text-align: right;
+    margin-right: 300px;
 }
 
-/* Table adjustments */
-.contact-item td {
+/* Contact items layout */
+.contact-items {
     display: flex;
-    flex-direction: column;  /* stack each <a> vertically */
-    gap: 18px;               /* space between icon+text pairs */
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Each icon + text pair side by side */
-.contact-item a {
+.contact-items a {
     display: flex;
-    align-items: center;     /* icon and h4 aligned horizontally */
-    gap: 12px;               /* space between icon and text */
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
 }
 
-/* Icon size */
-.contact-item a img.icon {
-    width: 80px;             /* adjust icon size as needed */
+.contact-items .icon {
+    width: 80px;
     height: 80px;
 }
 
-img.icons {
-    width: 40px;
-    height: 40px;
-}
-/* Text next to icon */
-.contact-item h4 {
+.contact-items h4 {
     margin: 0;
     font-size: 18px;
     color: var(--third-color);
 }
 
+/* Responsive adjustments */
+@media screen and (max-width: 900px) {
+    #contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .contact-left img {
+        width: 80px;
+        max-width: auto;
+    }
+
+    .contact-content {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-content h2 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .contact-items a {
+        justify-content: center;
+    }
+}
 
 /*FOR ALL SECTIONS*/
 .hero-section,
@@ -956,6 +1051,12 @@ img.icons {
         align-items: center;
     }
 
+     .skills-wrapper .slide-image {
+        max-width: 80px;
+    }
+    .skills-wrapper .row {
+        gap: 15px;
+    }
     .skills-title {
         font-size: 1.8rem;
         align-self: center;
@@ -998,18 +1099,19 @@ img.icons {
 
 /*CONTACT SECTION*/
     #contact {
-        padding: 30px 20px;
+        flex-direction: column;
+        align-items: center;
         gap: 25px;
     }
 
-    #contact > img:first-child {
+    .contact-left img {
         width: 100%;
-        max-width: 100%;
+        max-width: 400px;
     }
 
     .contact-content {
         width: 100%;
-        align-items: center;    /* move right side to center */
+        align-items: center;
         text-align: center;
     }
 
@@ -1018,9 +1120,10 @@ img.icons {
         font-size: 40px;
     }
 
-    .contact-item td {
-        align-items: center;
+    .contact-items a {
+        justify-content: center;
     }
+
 }
 
 /* Phones (max 600px) */
@@ -1135,6 +1238,14 @@ img.icons {
         margin-top: 50px;
     }
 
+    .skills-wrapper .row {
+        flex-direction: column; /* stack images vertically */
+        gap: 10px;
+    }
+    .skills-wrapper .slide-image {
+        max-width: 60px;
+    }
+    
     .software td, .coding td, .projects td {
         flex-direction: column;
         height: auto;
@@ -1166,20 +1277,20 @@ img.icons {
 
 
     /*CONTACT SECTION*/
-    #contact {
-        padding: 20px 15px;
+     .contact-left img {
+        max-width: 300px;
     }
 
     .contact-content h2 {
         font-size: 32px;
     }
 
-    .contact-item a img.icon {
-        width: 30px;
-        height: 30px;
+    .contact-items .icon {
+        width: 50px;
+        height: 50px;
     }
 
-    .contact-item h4 {
+    .contact-items h4 {
         font-size: 16px;
     }
 

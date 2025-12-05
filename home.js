@@ -37,6 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
   images.forEach(img => observer.observe(img));
 });
 
+// SLIDE-IN IMAGE FOR CONTACT SECTION
+document.addEventListener('DOMContentLoaded', () => {
+    const contactImg = document.querySelector('.contact-left img');
+
+    if (contactImg) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('in-view'); // triggers slide-up
+                }
+            });
+        }, { threshold: 0.2 }); // trigger when 20% of the image is visible
+
+        observer.observe(contactImg);
+    }
+});
 
 // SMOOTH SCROLL ON NAV LINK CLICK
 document.querySelectorAll('.nav-link').forEach(link => {
