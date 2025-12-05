@@ -58,15 +58,6 @@ button{
     background: none;
 }
 
-/*dark mode*/
-body.light-mode {
-    --dark-color: #000000;
-    --white-color: #ffffff;
-    --primary-color: #87c8eb;
-    --secondary-color: #58A0C8;
-    --third-color:  #022340;
-}
-
 /*button for dakr mode*/
 #theme-toggle {
     font-size: 1.5rem;
