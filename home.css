@@ -61,7 +61,7 @@ button{
 /* dark mode*/
 body.light-mode {
     --dark-color: #000000;
-    --white-color: #022340;
+    --white-color: #f4f4f4;
     --primary-color: #113F67;
     --secondary-color: #58A0C8;
     --third-color: #87c8eb;
