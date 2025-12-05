@@ -18,6 +18,21 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// dark mode
+const toggleBtn = document.getElementById('theme-toggle');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    // Change icon depending on theme
+    if(document.body.classList.contains('light-mode')){
+        toggleBtn.textContent = '🌞'; // Sun for light mode
+    } else {
+        toggleBtn.textContent = '🌙'; // Moon for dark mode
+    }
+});
+
+
 // SLIDE-IN IMAGE (ABOUT / SKILLS SECTION)
 
 document.addEventListener('DOMContentLoaded', () => {
