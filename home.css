@@ -62,9 +62,9 @@ button{
 body.light-mode {
     --dark-color: #000000;
     --white-color: #ffffff;
-    --primary-color: #113F67;
+    --primary-color: #87c8eb;
     --secondary-color: #58A0C8;
-    --third-color: #87c8eb;
+    --third-color:  #022340;
 }
 
 /*button for dakr mode*/

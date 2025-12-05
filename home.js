@@ -18,7 +18,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-
 // DARK MODE
 const toggleBtn = document.getElementById('theme-toggle');
 
