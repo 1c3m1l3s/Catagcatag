@@ -20,6 +20,7 @@ window.addEventListener('scroll', () => {
 
 
 
+
 // SLIDE-IN IMAGE (ABOUT / SKILLS SECTION)
 
 document.addEventListener('DOMContentLoaded', () => {

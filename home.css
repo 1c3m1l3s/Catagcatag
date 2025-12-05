@@ -1078,8 +1078,10 @@ header .navbar{
     }
 
     .contact-left img {
-        width: 100%;
-        max-width: 400px;
+        width: 80%;
+        max-width: 350px;
+        margin: 0 auto; /* center */
+        transform: translateY(60px);
     }
 
     .contact-content {
@@ -1095,6 +1097,14 @@ header .navbar{
 
     .contact-items a {
         justify-content: center;
+    }
+
+     #contact .contact-items a img.git {
+        margin-bottom: 80px; /* adjust as needed */
+    }
+
+    #contact .contact-items a img.git + h4 {
+        margin-bottom: 80px; /* adjust as needed */
     }
 
 }
@@ -1250,11 +1260,20 @@ header .navbar{
 
 
     /*CONTACT SECTION*/
-     .contact-left img {
-        max-width: 300px;
+    .contact-left img {
+        width: 200%;
+        height: 200%;
+        margin-top: 100px;
+        margin-right: 50px;
+        margin-left: 10px;
+        margin-bottom: 0;
     }
 
     .contact-content h2 {
+        margin-top: 0;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: center;
         font-size: 32px;
     }
 
@@ -1267,5 +1286,11 @@ header .navbar{
         font-size: 16px;
     }
 
+    #contact .contact-items a img.git {
+        margin-bottom: 80px; /* adjust as needed */
+    }
 
+    #contact .contact-items a img.git + h4 {
+        margin-bottom: 80px; /* adjust as needed */
+    }
 }
