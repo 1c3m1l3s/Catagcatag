@@ -58,6 +58,32 @@ button{
     background: none;
 }
 
+/*dark mode*/
+body.light-mode {
+    --dark-color: #000000;
+    --white-color: #ffffff;
+    --primary-color: #113F67;
+    --secondary-color: #58A0C8;
+    --third-color: #87c8eb;
+}
+
+/*button for dakr mode*/
+#theme-toggle {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: var(--third-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+
 img {
     width: 100%
     
